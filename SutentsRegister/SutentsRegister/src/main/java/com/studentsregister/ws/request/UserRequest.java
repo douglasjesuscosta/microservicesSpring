@@ -21,6 +21,8 @@ public class UserRequest {
 	@Size(min = 8, max = 16, message = "{message.error.user.invalidSize.password}")
 	private String password;
 
+	private String gender;
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -59,5 +61,13 @@ public class UserRequest {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }

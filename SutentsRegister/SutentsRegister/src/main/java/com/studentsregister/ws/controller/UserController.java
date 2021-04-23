@@ -2,9 +2,6 @@ package com.studentsregister.ws.controller;
 
 import javax.validation.Valid;
 
-import com.studentsregister.ws.request.UserRequest;
-import com.studentsregister.ws.response.UserResponse;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.studentsregister.ws.request.UserRequest;
+import com.studentsregister.ws.response.UserResponse;
 
 @RestController
 @RequestMapping("users")
@@ -58,10 +58,14 @@ public class UserController {
 	 * 
 	 * @return
 	 */
-	@PostMapping
-	public ResponseEntity<UserRequest> createUser(@Valid @RequestBody UserRequest userToInsert) {
+	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public String createUser(@Valid @RequestBody UserRequest userToInsert) {
 
-		return new ResponseEntity<UserRequest>(userToInsert, HttpStatus.OK);
+		int gender = userToInsert.getGender().length();
+
+		// return new ResponseEntity<>(userToInsert, HttpStatus.OK);
+
+		return "teste";
 	}
 
 	/**
