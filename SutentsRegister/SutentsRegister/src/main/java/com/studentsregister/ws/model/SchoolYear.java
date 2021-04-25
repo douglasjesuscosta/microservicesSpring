@@ -19,10 +19,10 @@ public class SchoolYear {
     private String gradeName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "subject_id", nullable = false)
     private Subject subject;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gradeTeacher_id", nullable = false)
     private Teacher gradeTeacher;
 
@@ -33,7 +33,7 @@ public class SchoolYear {
     private boolean isEnded;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schoolYear")
+    @JoinColumn(name = "schoolYear_id")
     private StudentSchoolyear studentSchoolyear;
 
     public Long getId() {

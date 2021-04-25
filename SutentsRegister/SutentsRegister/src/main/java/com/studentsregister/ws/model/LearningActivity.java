@@ -1,12 +1,11 @@
 package com.studentsregister.ws.model;
 
+import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import com.studentsregister.ws.enums.AvaliationType;
-
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class LearningActivity {

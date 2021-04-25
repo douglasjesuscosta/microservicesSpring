@@ -1,5 +1,6 @@
 package com.studentsregister.ws.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,15 +18,24 @@ public class StudentSchoolyear {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schoolYear_id")
+    @JoinColumn(name = "schoolYear_id", referencedColumnName = "id")
     private SchoolYear schoolYear;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "avaliation_id")
-    private Assessment avaliation;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "assessment_id", referencedColumnName = "id")
+    private Assessment assessment;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Student getStudent() {
         return student;
@@ -43,11 +53,12 @@ public class StudentSchoolyear {
         this.schoolYear = schoolYear;
     }
 
-    public Assessment getAvaliation() {
-        return avaliation;
+    public Assessment getAssessment() {
+        return assessment;
     }
 
-    public void setAvaliation(Assessment avaliation) {
-        this.avaliation = avaliation;
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
     }
+
 }

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -20,7 +21,8 @@ public class Teacher extends Person {
 
     private Date dataSaida;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "subject_id")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subject_id", referencedColumnName = "id")
     private Set<Subject> teachedSubjects;
 
     public Long getSalary() {

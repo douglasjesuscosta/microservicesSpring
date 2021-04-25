@@ -1,0 +1,5 @@
+package com.studentsregister.ws.controller;
+
+public class UserController {
+
+}

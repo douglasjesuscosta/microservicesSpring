@@ -1,5 +1,7 @@
 package com.studentsregister.ws.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -9,8 +11,8 @@ public class Student extends Person {
 
     private String registrationNumber;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student_id")
-    private StudentSchoolyear suStudentSchoolyear;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+    private Set<StudentSchoolyear> studentSchoolYears;
 
     public String getRegistrationNumber() {
         return registrationNumber;
@@ -20,4 +22,11 @@ public class Student extends Person {
         this.registrationNumber = registrationNumber;
     }
 
+    public Set<StudentSchoolyear> getStudentSchoolYears() {
+        return studentSchoolYears;
+    }
+
+    public void setStudentSchoolYears(Set<StudentSchoolyear> studentSchoolYears) {
+        this.studentSchoolYears = studentSchoolYears;
+    }
 }
