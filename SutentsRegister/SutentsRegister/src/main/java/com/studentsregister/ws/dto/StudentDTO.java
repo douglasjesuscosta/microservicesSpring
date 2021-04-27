@@ -1,8 +1,8 @@
-package com.studentsregister.ws.request;
+package com.studentsregister.ws.dto;
 
 import javax.validation.constraints.NotNull;
 
-public class StudentRequest {
+public class StudentDTO {
 
     @NotNull(message = "{message.error.student.null.firstName}")
     private String firstName;

@@ -1,4 +1,4 @@
-package com.studentsregister.ws.request;
+package com.studentsregister.ws.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
